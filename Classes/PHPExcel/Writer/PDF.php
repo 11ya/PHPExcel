@@ -303,11 +303,9 @@ class PHPExcel_Writer_PDF extends PHPExcel_Writer_HTML implements PHPExcel_Write
         $pdf->SetKeywords($this->_phpExcel->getProperties()->getKeywords());
         $pdf->SetCreator($this->_phpExcel->getProperties()->getCreator());
 
-        $pdf->WriteHTML(
-            $this->generateHTMLHeader(false) .
-                $this->generateSheetData() .
-                $this->generateHTMLFooter()
-        );
+        $pdf->WriteHTML($this->generateHTMLHeader(false));
+
+        $pdf->WriteHTML($this->generateSheetData() . $this->generateHTMLFooter());
 
         // Write to file
         fwrite($fileHandle, $pdf->Output('','S'));

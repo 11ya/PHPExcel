@@ -12320,6 +12320,7 @@ function WriteHTML($html,$sub=0,$init=true,$close=true) {
 				// 4 - writes HTML headers
 				// $close Leaves buffers etc. in current state, so that it can continue a block etc.
 				// $init - Clears and sets buffers to Top level block etc.
+    set_time_limit(180);
 
 	if (empty($html)) { $html = ''; }
 	if ($this->progressBar) { $this->UpdateProgressBar(1,0,'Parsing CSS & Headers'); }	// *PROGRESS-BAR*
